@@ -3,20 +3,20 @@ const validate = require('express-validation');
 const dreamController = require('../../controllers/dream.controller');
 
 
-const { createDream } = require('../../validations/notes.validation');
+const { createDream, updateDream } = require('../../validations/dream.validation');
 
 const router = express.Router();
 
 // Dream Routes
 
-router.get('/dream/:dreamId?', dreamController.get);
-router.post('/dream', validate(createDream), dreamController.create);
+router.get('/:dreamId?', dreamController.get);
+router.post('/', validate(createDream), dreamController.create);
 
 // Update
-router.put('/dream/:dreamId', dreamController.update);
+router.put('/:dreamId', validate(updateDream), dreamController.update);
 
 // Delete
-router.delete('/dream/:dreamId', dreamController.delete);
+router.delete('/:dreamId', dreamController.delete);
 
 
 module.exports = router;

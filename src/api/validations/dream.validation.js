@@ -8,4 +8,12 @@ module.exports = {
       name_of_owner: Joi.string().required(),
     },
   },
+
+
+  // PUT /v1/dream
+  updateDream: {
+    body: {
+      name_of_owner: Joi.string().required(),
+    },
+  },
 };

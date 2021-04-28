@@ -7,7 +7,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - "3040:3040"
+      - "3000:3000"
     depends_on:
       - mongodb
 

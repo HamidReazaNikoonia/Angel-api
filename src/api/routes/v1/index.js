@@ -1,6 +1,7 @@
 const express = require('express');
 const userRoutes = require('./user.route');
 const authRoutes = require('./auth.route');
+const dreamRoutes = require('./dream.route');
 const uploadRoute = require('../../services/uploader/uploader.controller');
 
 const router = express.Router();
@@ -19,5 +20,6 @@ router.use('/users', userRoutes);
 router.use('/auth', authRoutes);
 
 router.use('/upload', uploadRoute);
+router.use('/dream', dreamRoutes);
 
 module.exports = router;
