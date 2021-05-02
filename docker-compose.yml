@@ -9,7 +9,7 @@ services:
     ports:
       - "5001:5001"
     depends_on:
-      - mongodb
+      - mongodb-angel
 
   mongodb-angel:
     image: mongo
