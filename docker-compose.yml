@@ -3,7 +3,7 @@ services:
   boilerplate-api-angel:
     build: .
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/angel
+      - MONGO_URI=mongodb://127.0.0.1:27017/angel
     volumes:
       - .:/app
     ports:
