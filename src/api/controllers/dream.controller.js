@@ -50,7 +50,7 @@ exports.getDreamsOf = async (req, res, next) => {
     const { userId } = req.params;
     let dreams = [];
 
-    if (!userId) {
+    if (userId) {
       dreams = await Dream.find({ user: userId });
     }
 
