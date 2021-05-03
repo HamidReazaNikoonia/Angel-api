@@ -45,6 +45,33 @@ exports.get = async (req, res, next) => {
 };
 
 
+exports.getDreamsOf = async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+    let dreams = [];
+
+    if (!userId) {
+      dreams = await Dream.find({ user: userId });
+    }
+
+    if (!dreams) {
+      throw new APIError({
+        message: 'Dreams can not Exist',
+        status: httpStatus.NOT_FOUND,
+      });
+    }
+
+    // GG
+    res.status(httpStatus.OK);
+    res.json({
+      data: dreams,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+
 exports.create = async (req, res, next) => {
   try {
     const newDream = await new Dream(req.body).save();

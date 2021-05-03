@@ -1,6 +1,7 @@
 const express = require('express');
 const validate = require('express-validation');
 const controller = require('../../controllers/user.controller');
+const dreamController = require('../../controllers/dream.controller');
 const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
 const {
   listUsers,
@@ -16,6 +17,7 @@ const router = express.Router();
  */
 router.param('userId', controller.load);
 
+router.get('/:userId/dream', dreamController.getDreamsOf);
 
 router
   .route('/')
